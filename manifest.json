@@ -1,0 +1,11 @@
+{
+  "version": "1.0.0",
+  "type": "hooks",
+  "items": [
+    { "name": "auto-stage-on-write", "hookType": "PostToolUse", "description": "Automatically git-stages files after Claude writes or edits them", "command": "git/auto-stage-on-write.sh", "matcher": "Write,Edit", "category": "git" },
+    { "name": "block-dangerous-commands", "hookType": "PreToolUse", "description": "Blocks destructive shell commands (rm -rf, git push --force, etc.)", "command": "guardrails/block-dangerous-commands.sh", "matcher": "Bash", "category": "guardrails" },
+    { "name": "telegram-notify", "hookType": "PostToolUse", "description": "Sends Telegram notification on task completion or errors", "command": "notifications/telegram-notify.sh", "category": "notifications" },
+    { "name": "session-summary", "hookType": "Stop", "description": "Generates a session summary when Claude Code exits", "command": "session/session-summary.sh", "category": "session" },
+    { "name": "codepulse-ingest", "hookType": "PostToolUse", "description": "Sends tool execution telemetry to CodePulse dashboard", "command": "telemetry/codepulse-ingest.sh", "category": "telemetry" }
+  ]
+}
